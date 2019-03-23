@@ -128,19 +128,21 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		Individual parent = population.get(Parameters.random.nextInt(Parameters.popSize));
 		return parent.copy();
 	}
-	
+
+	public static int CreateRandomNumber(int number)
+	{
+		int x = (int) Math.random()*number;
+		return x;
+	}
 	
 	private Individual tournament_selection()
 	{
 		ArrayList <Individual> potentialrndParents = new ArrayList<Individual>();
-		Random myRandom  = new Random();
 		
 		//pick random individuals from population to become potential parents
 		for(int i=0; i<population.size();i++)
 		{
-			int randomIndividualID = myRandom.nextInt(i);
-			potentialrndParents.add(population.get(randomIndividualID).copy());
-			
+			potentialrndParents.add(population.get(CreateRandomNumber(i)).copy());
 		}
 		//check fitness of randomly picked individuals
 		
@@ -148,7 +150,6 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		winner = null;
 		for(Individual rndIndivi : potentialrndParents)
 		{
-			
 			if(winner == null)
 			{
 				winner = rndIndivi.copy();
@@ -158,30 +159,12 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 				winner = rndIndivi.copy();
 			}
 		}
-
-		//	best = null;;
-		//	for (Individual individual : population) {
-		//		if (best == null) {
-		//			best = individual.copy();
-		//		} else if (individual.fitness < best.fitness) {
-		//			best = individual.copy();
-		//		}
-		
-		
-		//for(int n=0; n<potentialParents.size();n++)
-		//{
-		//	for(int k=n+1; k<potentialParents.size();k++)
-		//	{				
-				//compare parent n with the rest of the parents in array, if parent n fitness is too small, kick him out, if 
-				//it's the best, keep him and so on
-		//	}
-			//compare the fitness between the chosen parents			
-		//}
+	//	System.out.println(winner);
 		return winner;
 	}
 	
 	
-	//TO TRY: ROULETTE, SUS, RANK, TOURNAMENT - a.k.
+	//TO TRY: ROULETTE, SUS, RANK,  - a.k.
 
 	/**
 	 * Crossover / Reproduction
