@@ -43,8 +43,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			 */
 
 			// Select 2 Individuals from the current population. Currently returns random Individual
-			Individual parent1 = select(); 
-			Individual parent2 = select();
+		//	Individual parent1 = select(); 
+		//	Individual parent2 = select();
+			
+			Individual parent1 = tournament_selection();
+			Individual parent2 = tournament_selection();
 
 			// Generate a child by crossover. Not Implemented			
 			ArrayList<Individual> children = reproduce(parent1, parent2);			
@@ -135,11 +138,34 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//pick random individuals from population to become potential parents
 		for(int i=0; i<population.size();i++)
 		{
-			//potentialParents.add(best);
 			int randomIndividualID = myRandom.nextInt(i);
 			potentialrndParents.add(population.get(randomIndividualID).copy());
 			
 		}
+		//check fitness of randomly picked individuals
+		
+		Individual winner = new Individual();
+		winner = null;
+		for(Individual rndIndivi : potentialrndParents)
+		{
+			
+			if(winner == null)
+			{
+				winner = rndIndivi.copy();
+			}
+			else if(rndIndivi.fitness <winner.fitness)
+			{
+				winner = rndIndivi.copy();
+			}
+		}
+
+		//	best = null;;
+		//	for (Individual individual : population) {
+		//		if (best == null) {
+		//			best = individual.copy();
+		//		} else if (individual.fitness < best.fitness) {
+		//			best = individual.copy();
+		//		}
 		
 		
 		//for(int n=0; n<potentialParents.size();n++)
@@ -151,20 +177,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//	}
 			//compare the fitness between the chosen parents			
 		//}
-		
-		
-		
-		
-		
-	//	best = null;;
-	//	for (Individual individual : population) {
-	//		if (best == null) {
-	//			best = individual.copy();
-	//		} else if (individual.fitness < best.fitness) {
-	//			best = individual.copy();
-	//		}
-		
-		return;
+		return winner;
 	}
 	
 	
