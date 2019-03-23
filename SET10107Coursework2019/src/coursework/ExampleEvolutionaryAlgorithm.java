@@ -1,6 +1,7 @@
 package coursework;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import model.Fitness;
 import model.Individual;
@@ -124,6 +125,36 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		Individual parent = population.get(Parameters.random.nextInt(Parameters.popSize));
 		return parent.copy();
 	}
+	
+	//private Individual roulette_select()
+	//{
+	//	Individual parent = 
+	//	return parent.copy();
+	//}
+	
+	private Individual tournament_select()
+	{
+		Random myRandom = new Random();
+		
+		ArrayList <Individual> potentialParents = new ArrayList<Individual>();
+		
+		
+		//pick random individuals to become potential parents
+		for(int i=0; i<population.size();i++)
+		{
+			potentialParents.set(i,);
+			
+			
+			//store their fitness values
+			
+		}
+		
+		
+		return winner.copy();
+	}
+	
+	
+	//TO TRY: ROULETTE, SUS, RANK, TOURNAMENT - a.k.
 
 	/**
 	 * Crossover / Reproduction
