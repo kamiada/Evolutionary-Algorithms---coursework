@@ -129,30 +129,40 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	
 	private Individual tournament_selection()
 	{
-		ArrayList <Individual> potentialParents = new ArrayList<Individual>();
+		ArrayList <Individual> potentialrndParents = new ArrayList<Individual>();
+		Random myRandom  = new Random();
 		
 		//pick random individuals from population to become potential parents
 		for(int i=0; i<population.size();i++)
 		{
-			potentialParents.add(best);
-		}
-		for(int n=0; n<potentialParents.size();n++)
-		{
-			for(int k=n+1; k<potentialParents.size();k++)
-			{
-				
-				//compare parent n with the rest of the parents in array, if parent n fitness is too small, kick him out, if 
-				//it's the best, keep him and so on
-				if(potentialParents[n] < potentialParents[k])
-				{
-					
-				}
-			}
-			//compare the fitness between the chosen parents
+			//potentialParents.add(best);
+			int randomIndividualID = myRandom.nextInt(i);
+			potentialrndParents.add(population.get(randomIndividualID).copy());
 			
 		}
 		
 		
+		//for(int n=0; n<potentialParents.size();n++)
+		//{
+		//	for(int k=n+1; k<potentialParents.size();k++)
+		//	{				
+				//compare parent n with the rest of the parents in array, if parent n fitness is too small, kick him out, if 
+				//it's the best, keep him and so on
+		//	}
+			//compare the fitness between the chosen parents			
+		//}
+		
+		
+		
+		
+		
+	//	best = null;;
+	//	for (Individual individual : population) {
+	//		if (best == null) {
+	//			best = individual.copy();
+	//		} else if (individual.fitness < best.fitness) {
+	//			best = individual.copy();
+	//		}
 		
 		return;
 	}
