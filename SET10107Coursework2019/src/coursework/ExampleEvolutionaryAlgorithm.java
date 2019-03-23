@@ -126,11 +126,6 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		return parent.copy();
 	}
 	
-	//private Individual roulette_select()
-	//{
-	//	Individual parent = 
-	//	return parent.copy();
-	//}
 	
 	private Individual tournament_select()
 	{
@@ -138,19 +133,14 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		
 		ArrayList <Individual> potentialParents = new ArrayList<Individual>();
 		
-		
-		//pick random individuals to become potential parents
+		//pick random individuals from population to become potential parents
 		for(int i=0; i<population.size();i++)
 		{
-			potentialParents.set(i,);
-			
-			
-			//store their fitness values
-			
+			potentialParents.add(best);
 		}
 		
 		
-		return winner.copy();
+		return;
 	}
 	
 	
