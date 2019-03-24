@@ -50,8 +50,8 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			Individual parent2 = tournament_selection();
 
 			// Generate a child by crossover. Not Implemented			
-			ArrayList<Individual> children = reproduce(parent1, parent2);			
-			
+			//ArrayList<Individual> children = reproduce(parent1, parent2);			
+			ArrayList<Individual>children = singleP_reproduce(parent1,parent2);
 			//mutate the offspring
 			mutate(children);
 			
@@ -174,19 +174,20 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		ArrayList<Individual> children = new ArrayList<>();
 		
 		
-		Random myRandom = new Random();
+		
 		//pick randomly a point in both parents
-		int cutPoint = myRandom.nextInt(population.size());
+		Random myRandom = new Random();
+		int cutPoint = myRandom.nextInt(parent1.chromosome.length);
 		
 		//cut both of the parents in chosen random points
 		for(int i=0; i<cutPoint; i++)
 		{
-			
+			children.add(parent1);
 			
 			//add genes from the second parent
 			for(i = cutPoint; i<parent2.chromosome.length;i++)
 			{
-				
+				children.add(parent2);
 			}
 		}
 
