@@ -190,9 +190,6 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 				children.add(parent2);
 			}
 		}
-
-	
-		
 		
 		//return the offspring 
 		return children;
