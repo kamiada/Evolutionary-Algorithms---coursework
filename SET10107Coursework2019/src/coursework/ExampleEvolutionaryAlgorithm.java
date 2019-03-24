@@ -164,8 +164,17 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	}
 	
 	
-	//TO TRY: ROULETTE, SUS, RANK,  - a.k.
+	//TO TRY: ROULETTE, RANK,  - a.k.
 
+	
+	
+	private ArrayList<Individual>singleP_reproduce(Individual parent1, Individual parent2)
+	{
+		return children;
+	}
+	
+	
+	
 	/**
 	 * Crossover / Reproduction
 	 * 
@@ -178,6 +187,10 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		children.add(parent2.copy());		
 		return children;
 	} 
+	
+	//TO TRY - SINGLE POINT CROSSOVER AND MULTIPOINT CROSSOVER - a.k.
+	
+	
 	
 	/**
 	 * Mutation
