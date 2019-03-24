@@ -167,14 +167,35 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	//TO TRY: ROULETTE, RANK,  - a.k.
 
 	
-	
+	//SINGLE POINT CROSSOVER
 	private ArrayList<Individual>singleP_reproduce(Individual parent1, Individual parent2)
 	{
+		//empty child array
+		ArrayList<Individual> children = new ArrayList<>();
+		
+		
+		Random myRandom = new Random();
+		//pick randomly a point in both parents
+		int cutPoint = myRandom.nextInt(population.size());
+		
+		//cut both of the parents in chosen random points
+		for(int i=0; i<cutPoint; i++)
+		{
+			
+			
+			//add genes from the second parent
+			for(i = cutPoint; i<parent2.chromosome.length;i++)
+			{
+				
+			}
+		}
+
+	
+		
+		
+		//return the offspring 
 		return children;
 	}
-	
-	
-	
 	/**
 	 * Crossover / Reproduction
 	 * 
