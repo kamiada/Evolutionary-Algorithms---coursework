@@ -163,6 +163,16 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		return winner;
 	}
 	
+	private Individual rank_selection()
+	{
+		return winner;
+	}
+	
+	private Individual roulette_selection()
+	{
+		return winner;
+	}
+	
 	
 	//TO TRY: ROULETTE, RANK,  - a.k.
 
@@ -222,7 +232,8 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	//TO TRY - INTEGER OR BINARY MUTATION 
 	
 	
-	private void mutate(ArrayList<Individual> individuals) {		
+	private void mutate(ArrayList<Individual> individuals) 
+	{		
 		for(Individual individual : individuals) {
 			for (int i = 0; i < individual.chromosome.length; i++) {
 				if (Parameters.random.nextDouble() < Parameters.mutateRate) {
@@ -236,6 +247,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		}		
 	}
 
+	//bit
+	
+	
+	
+	
 	/**
 	 * 
 	 * Replaces the worst member of the population 
