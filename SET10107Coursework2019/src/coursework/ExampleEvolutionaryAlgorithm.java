@@ -216,6 +216,12 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	 * 
 	 * 
 	 */
+	
+	
+	
+	//TO TRY - INTEGER OR BINARY MUTATION 
+	
+	
 	private void mutate(ArrayList<Individual> individuals) {		
 		for(Individual individual : individuals) {
 			for (int i = 0; i < individual.chromosome.length; i++) {
