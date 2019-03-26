@@ -165,17 +165,15 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	
 	private Individual rank_selection()
 	{
+		
 		return winner;
 	}
 	
 	private Individual roulette_selection()
 	{
+		
 		return winner;
 	}
-	
-	
-	//TO TRY: ROULETTE, RANK,  - a.k.
-
 	
 	//SINGLE POINT CROSSOVER
 	private ArrayList<Individual>singleP_reproduce(Individual parent1, Individual parent2)
@@ -229,7 +227,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	
 	
 	
-	//TO TRY - INTEGER OR BINARY MUTATION 
+	//TO TRY - INTEGER OR BINARY MUTATION - a.k.
 	
 	
 	private void mutate(ArrayList<Individual> individuals) 
@@ -248,7 +246,13 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	}
 
 	//bit
-	
+	private void mutate_BitFlip(ArrayList<Individual> individuals)
+	{
+		for(Individual individual : individuals)
+		{
+			
+		}
+	}
 	
 	
 	
