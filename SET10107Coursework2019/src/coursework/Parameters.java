@@ -24,8 +24,14 @@ public class Parameters {
 	// Parameters for mutation 
 	// Rate = probability of changing a gene
 	// Change = the maximum +/- adjustment to the gene value
-	public static double mutateRate = 0.01; // mutation rate for mutation operator
-	public static double mutateChange = 0.05; // delta change for mutation operator
+	//public static double mutateRate = 0.01; // mutation rate for mutation operator
+	//public static double mutateChange = 0.05; // delta change for mutation operator
+	
+	//FOR TESTING:
+	public static double mutateRate = 0.01; 
+	public static double mutateChange = 2.05;
+	
+	
 	
 	//Random number generator used throughout the application
 	public static long seed = System.currentTimeMillis();
@@ -33,6 +39,10 @@ public class Parameters {
 
 	//set the NeuralNetwork class here to use your code from the GUI
 	public static Class neuralNetworkClass = ExampleEvolutionaryAlgorithm.class;
+	
+	
+	
+	
 	
 	/**
 	 * Do not change any methods that appear below here.

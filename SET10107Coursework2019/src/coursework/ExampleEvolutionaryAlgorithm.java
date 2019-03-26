@@ -163,17 +163,17 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		return winner;
 	}
 	
-	private Individual rank_selection()
-	{
-		
-		return winner;
-	}
+//	private Individual rank_selection()
+//	{
+//		
+//		return winner;
+//	}
 	
-	private Individual roulette_selection()
-	{
-		
-		return winner;
-	}
+//	private Individual roulette_selection()
+//	{
+//		
+//		return winner;
+//	}
 	
 	//SINGLE POINT CROSSOVER
 	private ArrayList<Individual>singleP_reproduce(Individual parent1, Individual parent2)
@@ -250,7 +250,10 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	{
 		for(Individual individual : individuals)
 		{
-			
+			for(int i=0; i<individual.chromosome.length; i++)
+			{
+				
+			}
 		}
 	}
 	
