@@ -53,8 +53,8 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			//ArrayList<Individual> children = reproduce(parent1, parent2);			
 			ArrayList<Individual>children = singleP_reproduce(parent1,parent2);
 			//mutate the offspring
-			mutate(children);
-			
+			//mutate(children);
+			mutate_test(children);
 			// Evaluate the children
 			evaluateIndividuals(children);			
 
@@ -246,13 +246,26 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	}
 
 	//bit
-	private void mutate_BitFlip(ArrayList<Individual> individuals)
+	private void mutate_test(ArrayList<Individual> individuals)
 	{
 		for(Individual individual : individuals)
 		{
 			for(int i=0; i<individual.chromosome.length; i++)
 			{
+				if (Parameters.random.nextBoolean()) 
+				{
+					individual.chromosome[i] += (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
+				}
+				else 
+				{
+					individual.chromosome[i] -= (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
+				}
 				
+				// Make sure that is stays within limits
+				if(individual.chromosome[i] > Parameters.maxGene)
+					individual.chromosome[i] = Parameters.maxGene;
+				else if (individual.chromosome[i] < Parameters.minGene)
+					individual.chromosome[i] = Parameters.minGene;
 			}
 		}
 	}

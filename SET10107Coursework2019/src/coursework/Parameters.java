@@ -13,7 +13,8 @@ public class Parameters {
 	 * You may add other Parameters as required to this class 
 	 * 
 	 */
-	private static int numHidden = 5;	
+	//private static int numHidden = 5;	
+	private static int numHidden = 10;	
 	private static int numGenes = calculateNumGenes();
 	public static double minGene = -3; // specifies minimum and maximum weight values 
 	public static double maxGene = +3;
@@ -28,8 +29,8 @@ public class Parameters {
 	//public static double mutateChange = 0.05; // delta change for mutation operator
 	
 	//FOR TESTING:
-	public static double mutateRate = 0.01; 
-	public static double mutateChange = 2.05;
+	public static double mutateRate = 1.25; 
+	public static double mutateChange = 2.25;
 	
 	
 	
