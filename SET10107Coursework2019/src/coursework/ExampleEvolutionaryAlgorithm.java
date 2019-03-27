@@ -1,6 +1,7 @@
 package coursework;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import model.Fitness;
@@ -140,21 +141,16 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		ArrayList <Individual> potentialrndParents = new ArrayList<Individual>();
 		
 		//pick random individuals from population to become potential parents
-		
-//		for(int i=0; i<population.size();i++)
-//		{
-//			potentialrndParents.add(population.get(CreateRandomNumber(i)).copy());
-//		}
 		Random test_rnd = new Random();
-		for(int i=0; i<Parameters.popSize/2;i++)
+		
+		
+		//try to get 20% out of population size
+		for(int i=0; i<Parameters.popSize/8;i++)
 		{
-			//potentialrndParents.add(population.get(CreateRandomNumber(i)).copy());
-			
 			potentialrndParents.add(population.get(test_rnd.nextInt(Parameters.popSize)));
 		}
-		
+		Collections.sort(potentialrndParents);
 		//check fitness of randomly picked individuals
-		
 		Individual winner = new Individual();
 		winner = null;
 		for(Individual rndIndivi : potentialrndParents)
@@ -168,6 +164,8 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 				winner = rndIndivi.copy();
 			}
 		}
+
+		
 //		System.out.println(winner);
 		return winner;
 	}
@@ -191,6 +189,9 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		ArrayList<Individual> children = new ArrayList<>();
 		
 		
+		Individual offspring1 = new Individual();
+		Individual offspring2 = new Individual();
+		
 		
 		//pick randomly a point in both parents
 		Random myRandom = new Random();
@@ -207,7 +208,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 				children.add(parent2);
 			}
 		}
-		
+		System.out.println(children);
 		//return the offspring 
 		return children;
 	}
