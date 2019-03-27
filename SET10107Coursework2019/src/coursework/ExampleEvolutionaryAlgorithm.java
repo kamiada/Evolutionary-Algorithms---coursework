@@ -200,15 +200,37 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//cut both of the parents in chosen random points
 		for(int i=0; i<cutPoint; i++)
 		{
-			children.add(parent1);
+			//children.add(parent1);
+			
+			offspring1.chromosome.equals(parent1.chromosome);
+			offspring2.chromosome.equals(parent1.chromosome);
 			
 			//add genes from the second parent
 			for(i = cutPoint; i<parent2.chromosome.length;i++)
 			{
-				children.add(parent2);
+				//children.add(parent2);
+				offspring1.chromosome.equals(parent2.chromosome);
+				offspring2.chromosome.equals(parent2.chromosome);
 			}
 		}
-		System.out.println(children);
+		children.add(offspring1);
+		
+		
+		for(int i=0; i<cutPoint; i++)
+		{
+			//children.add(parent1);
+			
+			offspring2.chromosome.equals(parent1.chromosome);
+			
+			//add genes from the second parent
+			for(i = cutPoint; i<parent2.chromosome.length;i++)
+			{
+				//children.add(parent2);
+				offspring2.chromosome.equals(parent2.chromosome);
+			}
+		}
+		children.add(offspring2);
+		//System.out.println(children);
 		//return the offspring 
 		return children;
 	}
