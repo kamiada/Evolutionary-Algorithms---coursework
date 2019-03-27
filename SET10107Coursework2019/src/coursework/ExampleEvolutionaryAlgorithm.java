@@ -124,10 +124,10 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	 * NEEDS REPLACED with proper selection this just returns a copy of a random
 	 * member of the population
 	 */
-	private Individual select() {		
-		Individual parent = population.get(Parameters.random.nextInt(Parameters.popSize));
-		return parent.copy();
-	}
+//	private Individual select() {		
+//		Individual parent = population.get(Parameters.random.nextInt(Parameters.popSize));
+//		return parent.copy();
+//	}
 
 	public static int CreateRandomNumber(int number)
 	{
@@ -217,12 +217,12 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	 * NEEDS REPLACED with proper method this code just returns exact copies of the
 	 * parents. 
 	 */
-	private ArrayList<Individual> reproduce(Individual parent1, Individual parent2) {
-		ArrayList<Individual> children = new ArrayList<>();
-		children.add(parent1.copy());
-		children.add(parent2.copy());		
-		return children;
-	} 
+//	private ArrayList<Individual> reproduce(Individual parent1, Individual parent2) {
+//		ArrayList<Individual> children = new ArrayList<>();
+//		children.add(parent1.copy());
+//		children.add(parent2.copy());		
+//		return children;
+//	} 
 	
 	//TO TRY - SINGLE POINT CROSSOVER AND MULTIPOINT CROSSOVER - a.k.
 	
@@ -239,20 +239,20 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	//TO TRY - INTEGER OR BINARY MUTATION - a.k.
 	
 	
-	private void mutate(ArrayList<Individual> individuals) 
-	{		
-		for(Individual individual : individuals) {
-			for (int i = 0; i < individual.chromosome.length; i++) {
-				if (Parameters.random.nextDouble() < Parameters.mutateRate) {
-					if (Parameters.random.nextBoolean()) {
-						individual.chromosome[i] += (Parameters.mutateChange);
-					} else {
-						individual.chromosome[i] -= (Parameters.mutateChange);
-					}
-				}
-			}
-		}		
-	}
+//	private void mutate(ArrayList<Individual> individuals) 
+//	{		
+//		for(Individual individual : individuals) {
+//			for (int i = 0; i < individual.chromosome.length; i++) {
+//				if (Parameters.random.nextDouble() < Parameters.mutateRate) {
+//					if (Parameters.random.nextBoolean()) {
+//						individual.chromosome[i] += (Parameters.mutateChange);
+//					} else {
+//						individual.chromosome[i] -= (Parameters.mutateChange);
+//					}
+//				}
+//			}
+//		}		
+//	}
 
 	//bit
 	private void mutate_test(ArrayList<Individual> individuals)
@@ -263,11 +263,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			{
 				if (Parameters.random.nextBoolean()) 
 				{
-					individual.chromosome[i] += (0.2 + (Parameters.random.nextDouble() * Parameters.mutateChange));
+					individual.chromosome[i] += (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
 				}
 				else 
 				{
-					individual.chromosome[i] -= (0.2 + (Parameters.random.nextDouble() * Parameters.mutateChange));
+					individual.chromosome[i] -= (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
 				}
 				
 				// Make sure that is stays within limits
