@@ -145,10 +145,12 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 //		{
 //			potentialrndParents.add(population.get(CreateRandomNumber(i)).copy());
 //		}
-		
-		for(int i=0; i<Parameters.popSize;i++)
+		Random test_rnd = new Random();
+		for(int i=0; i<Parameters.popSize/2;i++)
 		{
-			potentialrndParents.add(population.get(CreateRandomNumber(i)).copy());
+			//potentialrndParents.add(population.get(CreateRandomNumber(i)).copy());
+			
+			potentialrndParents.add(population.get(test_rnd.nextInt(Parameters.popSize)));
 		}
 		
 		//check fitness of randomly picked individuals
