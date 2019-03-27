@@ -188,10 +188,8 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//empty child array
 		ArrayList<Individual> children = new ArrayList<>();
 		
-		
 		Individual offspring1 = new Individual();
 		Individual offspring2 = new Individual();
-		
 		
 		//pick randomly a point in both parents
 		Random myRandom = new Random();
@@ -203,18 +201,15 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			//children.add(parent1);
 			
 			offspring1.chromosome.equals(parent1.chromosome);
-			offspring2.chromosome.equals(parent1.chromosome);
 			
 			//add genes from the second parent
 			for(i = cutPoint; i<parent2.chromosome.length;i++)
 			{
 				//children.add(parent2);
 				offspring1.chromosome.equals(parent2.chromosome);
-				offspring2.chromosome.equals(parent2.chromosome);
 			}
 		}
 		children.add(offspring1);
-		
 		
 		for(int i=0; i<cutPoint; i++)
 		{
