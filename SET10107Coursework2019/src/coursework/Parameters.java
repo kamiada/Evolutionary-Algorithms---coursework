@@ -14,7 +14,7 @@ public class Parameters {
 	 * 
 	 */
 	//private static int numHidden = 5;	
-	private static int numHidden = 10;	
+	private static int numHidden = 5;	
 	private static int numGenes = calculateNumGenes();
 	public static double minGene = -3; // specifies minimum and maximum weight values 
 	public static double maxGene = +3;

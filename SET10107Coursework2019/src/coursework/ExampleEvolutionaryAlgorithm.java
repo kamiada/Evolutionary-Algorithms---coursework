@@ -140,10 +140,17 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		ArrayList <Individual> potentialrndParents = new ArrayList<Individual>();
 		
 		//pick random individuals from population to become potential parents
-		for(int i=0; i<population.size();i++)
+		
+//		for(int i=0; i<population.size();i++)
+//		{
+//			potentialrndParents.add(population.get(CreateRandomNumber(i)).copy());
+//		}
+		
+		for(int i=0; i<Parameters.popSize;i++)
 		{
 			potentialrndParents.add(population.get(CreateRandomNumber(i)).copy());
 		}
+		
 		//check fitness of randomly picked individuals
 		
 		Individual winner = new Individual();
@@ -159,7 +166,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 				winner = rndIndivi.copy();
 			}
 		}
-	//	System.out.println(winner);
+		System.out.println(winner);
 		return winner;
 	}
 	
@@ -254,11 +261,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			{
 				if (Parameters.random.nextBoolean()) 
 				{
-					individual.chromosome[i] += (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
+					individual.chromosome[i] += (0.2 + (Parameters.random.nextDouble() * Parameters.mutateChange));
 				}
 				else 
 				{
-					individual.chromosome[i] -= (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
+					individual.chromosome[i] -= (0.2 + (Parameters.random.nextDouble() * Parameters.mutateChange));
 				}
 				
 				// Make sure that is stays within limits
