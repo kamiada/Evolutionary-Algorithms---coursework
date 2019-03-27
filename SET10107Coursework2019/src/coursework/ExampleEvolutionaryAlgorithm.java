@@ -168,7 +168,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 				winner = rndIndivi.copy();
 			}
 		}
-		System.out.println(winner);
+//		System.out.println(winner);
 		return winner;
 	}
 	
