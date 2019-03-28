@@ -187,10 +187,10 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	{
 		//empty child array
 		ArrayList<Individual> children = new ArrayList<>();
-		
 		Individual offspring1 = new Individual();
 		Individual offspring2 = new Individual();
 		
+
 		//pick randomly a point in both parents
 		Random myRandom = new Random();
 		int cutPoint = myRandom.nextInt(parent1.chromosome.length);
@@ -198,35 +198,33 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//cut both of the parents in chosen random points
 		for(int i=0; i<cutPoint; i++)
 		{
-			//children.add(parent1);
+			children.add(parent1);
 			
-			offspring1.chromosome.equals(parent1.chromosome);
+//			offspring1.chromosome[i] = parent1.chromosome[i];
+//			offspring2.chromosome[i] = parent2.chromosome[i];
 			
 			//add genes from the second parent
 			for(i = cutPoint; i<parent2.chromosome.length;i++)
 			{
-				//children.add(parent2);
-				offspring1.chromosome.equals(parent2.chromosome);
+				children.add(parent2);
+				
+				
+//				offspring1.chromosome[i] = parent2.chromosome[i];
+//				offspring2.chromosome[i] = parent1.chromosome[i];
 			}
 		}
-		children.add(offspring1);
+		//children.add(offspring1);
 		
-		for(int i=0; i<cutPoint; i++)
-		{
-			//children.add(parent1);
-			
-			offspring2.chromosome.equals(parent1.chromosome);
-			
-			//add genes from the second parent
-			for(i = cutPoint; i<parent2.chromosome.length;i++)
-			{
-				//children.add(parent2);
-				offspring2.chromosome.equals(parent2.chromosome);
-			}
-		}
-		children.add(offspring2);
-		//System.out.println(children);
-		//return the offspring 
+//		for(int i=0; i<cutPoint; i++)
+//		{
+//			//offspring2.chromosome.equals(parent1.chromosome);
+//			for(i = cutPoint; i<parent2.chromosome.length;i++)
+//			{
+//				//offspring2.chromosome.equals(parent2.chromosome);
+//			}
+//		}
+//		children.add(offspring1);
+//		children.add(offspring2);
 		return children;
 	}
 	/**
