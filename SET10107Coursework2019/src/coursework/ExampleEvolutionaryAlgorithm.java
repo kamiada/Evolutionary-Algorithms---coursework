@@ -176,11 +176,20 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 //		return winner;
 //	}
 	
-//	private Individual roulette_selection()
-//	{
-//		
-//		return winner;
-//	}
+	private Individual roulette_selection()
+	{
+		//calculate the sum of the fitnesses
+		int s;
+		//generate random number between 0 and S
+		Random myRandomN = new Random();
+		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
+		int P;
+		
+		
+		//The individual for which P exceeds S is the chosen individual.
+		
+		return winner;
+	}
 	
 	//SINGLE POINT CROSSOVER
 	private ArrayList<Individual>singleP_reproduce(Individual parent1, Individual parent2)
