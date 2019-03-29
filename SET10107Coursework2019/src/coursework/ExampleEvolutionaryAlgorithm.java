@@ -173,18 +173,38 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 //	private Individual rank_selection()
 //	{
 //		
+//		ArrayList<Individual> parents = new ArrayList<Individual>(); 
+//		
+//		for(int i=0; i<population.size();i++) 
+//		{
+//			
+//		}
+////		
+////	example:
+////	 for (int i = 0; i < size; i++) {
+////         fitness[i] = i + 1;
+////     }
+////
+////     Math.unitize1(fitness);
+////
+////     return population[Math.random(fitness)];
+//	
 //		return winner;
 //	}
 	
 	private Individual roulette_selection()
 	{
 		//calculate the sum of the fitnesses
-		int s;
+		double s = 0;
 		//generate random number between 0 and S
 		Random myRandomN = new Random();
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
-		int P;
-		
+		double P;
+		ArrayList<Individual> parents = new ArrayList<Individual>();
+		for(int i=0; i<population.size();i++)
+		{
+			
+		}
 		
 		//The individual for which P exceeds S is the chosen individual.
 		
@@ -283,11 +303,16 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 					individual.chromosome[i] -= (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
 				}
 				
-				// Make sure that is stays within limits
+
 				if(individual.chromosome[i] > Parameters.maxGene)
+				{
 					individual.chromosome[i] = Parameters.maxGene;
+				}
 				else if (individual.chromosome[i] < Parameters.minGene)
+				{
 					individual.chromosome[i] = Parameters.minGene;
+				}
+					
 			}
 		}
 	}
