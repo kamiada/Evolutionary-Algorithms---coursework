@@ -130,9 +130,9 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 //		return parent.copy();
 //	}
 
-	public static int CreateRandomNumber(int number)
+	public static double CreateRandomNumber(double number)
 	{
-		int x = (int) Math.random()*number;
+		double x = (double) Math.random()*number;
 		return x;
 	}
 	
@@ -194,9 +194,9 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	
 	private Individual roulette_selection()
 	{
-		//calculate the sum of the fitnesses
+		
 		double s = 0;
-		//generate random number between 0 and S
+		
 		Random myRandomN = new Random();
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
 		double P;
@@ -204,10 +204,12 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		
 		for(int i=0; i<population.size();i++)
 		{
-			//get sum of the all fintesses
-			s = population.get(i).fitness;
+			//calculate the sum of the fitnesses
+			s += population.get(i).fitness;
 		}
-		
+		//generate random number between 0 and S - so basically a positive number
+		double rnd = 0;
+		rnd = CreateRandomNumber(s);
 		//The individual for which P exceeds S is the chosen individual.
 		
 		return winner;
