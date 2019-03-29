@@ -146,6 +146,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		
 		//try to get 20% out of population size
 		for(int i=0; i<Parameters.popSize/8;i++)
+			
+			//better outcome when 20% is used instead of 50%. Better fitness.
+			
+			
+		//for(int i=0; i<Parameters.popSize/5;i++)
 		{
 			potentialrndParents.add(population.get(test_rnd.nextInt(Parameters.popSize)));
 		}
@@ -194,22 +199,22 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	
 	private Individual roulette_selection()
 	{
-		
-		double s = 0;
-		
-		Random myRandomN = new Random();
-		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
+		//accordingly to https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_parent_selection.htm
+		double S = 0;
 		double P;
 		ArrayList<Individual> parents = new ArrayList<Individual>();
-		
 		for(int i=0; i<population.size();i++)
 		{
 			//calculate the sum of the fitnesses
-			s += population.get(i).fitness;
+			S += population.get(i).fitness;
 		}
 		//generate random number between 0 and S - so basically a positive number
 		double rnd = 0;
-		rnd = CreateRandomNumber(s);
+		rnd = CreateRandomNumber(S);
+		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
+		
+		
+		
 		//The individual for which P exceeds S is the chosen individual.
 		
 		return winner;
