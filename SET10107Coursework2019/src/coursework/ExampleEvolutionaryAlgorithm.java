@@ -201,9 +201,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
 		double P;
 		ArrayList<Individual> parents = new ArrayList<Individual>();
+		
 		for(int i=0; i<population.size();i++)
 		{
-			
+			//get sum of the all fintesses
+			s = population.get(i).fitness;
 		}
 		
 		//The individual for which P exceeds S is the chosen individual.
