@@ -201,7 +201,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	{
 		//accordingly to https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_parent_selection.htm
 		double S = 0;
-		double P;
+		double comparisonPoint = 0;
 		ArrayList<Individual> parents = new ArrayList<Individual>();
 		for(int i=0; i<population.size();i++)
 		{
@@ -212,8 +212,10 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		double rnd = 0;
 		rnd = CreateRandomNumber(S);
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
-		
-		
+		for(Individual individual : population)
+		{
+			
+		}
 		
 		//The individual for which P exceeds S is the chosen individual.
 		
