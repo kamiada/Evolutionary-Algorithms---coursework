@@ -214,7 +214,17 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
 		for(Individual individual : population)
 		{
+			comparisonPoint += individual.fitness;
 			
+			if(comparisonPoint < S) 
+			{
+				
+			}
+			
+			else
+			{
+				return null;
+			}
 		}
 		
 		//The individual for which P exceeds S is the chosen individual.
