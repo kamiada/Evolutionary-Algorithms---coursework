@@ -202,7 +202,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//accordingly to https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_parent_selection.htm
 		double S = 0;
 		double comparisonPoint = 0;
-		ArrayList<Individual> parents = new ArrayList<Individual>();
+		Individual winner = null;
 		for(int i=0; i<population.size();i++)
 		{
 			//calculate the sum of the fitnesses
@@ -218,7 +218,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			
 			if(comparisonPoint < S) 
 			{
-				
+				winner = individual;
 			}
 			
 			else
