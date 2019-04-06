@@ -44,14 +44,12 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			 */
 
 			// Select 2 Individuals from the current population. Currently returns random Individual
-		//	Individual parent1 = select(); 
-		//	Individual parent2 = select();
 			
-			Individual parent1 = tournament_selection();
-			Individual parent2 = tournament_selection();
+//			Individual parent1 = tournament_selection();
+//			Individual parent2 = tournament_selection();
 			
-//			Individual parent1 = roulette_selection();
-//			Individual parent2 = roulette_selection();
+			Individual parent1 = roulette_selection();
+			Individual parent2 = roulette_selection();
 			
 
 			// Generate a child by crossover. Not Implemented			
@@ -173,33 +171,8 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 				winner = rndIndivi.copy();
 			}
 		}
-
-		
-//		System.out.println(winner);
 		return winner;
 	}
-	
-//	private Individual rank_selection()
-//	{
-//		
-//		ArrayList<Individual> parents = new ArrayList<Individual>(); 
-//		
-//		for(int i=0; i<population.size();i++) 
-//		{
-//			
-//		}
-////		
-////	example:
-////	 for (int i = 0; i < size; i++) {
-////         fitness[i] = i + 1;
-////     }
-////
-////     Math.unitize1(fitness);
-////
-////     return population[Math.random(fitness)];
-//	
-//		return winner;
-//	}
 	
 	private Individual roulette_selection()
 	{
@@ -210,7 +183,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		for(int i=0; i<population.size();i++)
 		{
 			//calculate the sum of the fitnesses
-			S += population.get(i).fitness-1;
+			S += population.get(i).fitness/1;
 		}
 		//generate random number between 0 and S - so basically a positive number
 		double rnd = 0;
@@ -218,7 +191,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
 		for(Individual individual : population)
 		{
-			comparisonPoint += individual.fitness-1;
+			comparisonPoint += individual.fitness/1;
 			
 			if(comparisonPoint < S) 
 			{
@@ -244,7 +217,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//pick randomly a point in both parents
 		Random myRandom = new Random();
 		
-		//ERROR HERE
+		//ERROR HERE - for roulette, but not for tournament
 		int cutPoint = myRandom.nextInt(parent1.chromosome.length);
 		
 		//cut both of the parents in chosen random points
@@ -261,6 +234,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 				offspring1.chromosome[i] = parent2.chromosome[i];
 				offspring2.chromosome[i] = parent1.chromosome[i];
 			}
+			
 		}
 
 		children.add(offspring1);
@@ -279,10 +253,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 //		children.add(parent2.copy());		
 //		return children;
 //	} 
-	
-	//TO TRY - SINGLE POINT CROSSOVER AND MULTIPOINT CROSSOVER - a.k.
-	
-	
+
 	
 	/**
 	 * Mutation
@@ -290,9 +261,6 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	 * 
 	 */
 	
-	
-	
-	//TO TRY - INTEGER OR BINARY MUTATION - a.k.
 	
 	
 //	private void mutate(ArrayList<Individual> individuals) 
