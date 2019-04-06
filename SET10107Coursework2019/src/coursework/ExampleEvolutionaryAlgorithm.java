@@ -210,7 +210,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		for(int i=0; i<population.size();i++)
 		{
 			//calculate the sum of the fitnesses
-			S += population.get(i).fitness/1;
+			S += population.get(i).fitness-1;
 		}
 		//generate random number between 0 and S - so basically a positive number
 		double rnd = 0;
@@ -218,14 +218,13 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
 		for(Individual individual : population)
 		{
-			comparisonPoint += individual.fitness/1;
+			comparisonPoint += individual.fitness-1;
 			
 			if(comparisonPoint < S) 
 			{
 				winner = individual;
 			}
 			
-				return null;
 		}
 		
 		//The individual for which P exceeds S is the chosen individual.
