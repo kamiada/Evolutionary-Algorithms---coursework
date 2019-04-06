@@ -47,11 +47,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//	Individual parent1 = select(); 
 		//	Individual parent2 = select();
 			
-//			Individual parent1 = tournament_selection();
-//			Individual parent2 = tournament_selection();
+			Individual parent1 = tournament_selection();
+			Individual parent2 = tournament_selection();
 			
-			Individual parent1 = roulette_selection();
-			Individual parent2 = roulette_selection();
+//			Individual parent1 = roulette_selection();
+//			Individual parent2 = roulette_selection();
 			
 
 			// Generate a child by crossover. Not Implemented			
