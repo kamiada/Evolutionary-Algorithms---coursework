@@ -127,10 +127,6 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	 * NEEDS REPLACED with proper selection this just returns a copy of a random
 	 * member of the population
 	 */
-//	private Individual select() {		
-//		Individual parent = population.get(Parameters.random.nextInt(Parameters.popSize));
-//		return parent.copy();
-//	}
 
 	public static double CreateRandomNumber(double number)
 	{
@@ -156,7 +152,6 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		{
 			potentialrndParents.add(population.get(test_rnd.nextInt(Parameters.popSize)));
 		}
-		//Collections.sort(potentialrndParents);
 		//check fitness of randomly picked individuals
 		Individual winner = new Individual();
 		winner = null;
@@ -183,7 +178,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		for(int i=0; i<population.size();i++)
 		{
 			//calculate the sum of the fitnesses
-			S += population.get(i).fitness/1;
+			S += population.get(i).fitness;
 		}
 		//generate random number between 0 and S - so basically a positive number
 		double rnd = 0;
@@ -191,7 +186,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
 		for(Individual individual : population)
 		{
-			comparisonPoint += individual.fitness/1;
+			comparisonPoint += individual.fitness - 1;
 			
 			if(comparisonPoint < S) 
 			{
@@ -217,7 +212,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//pick randomly a point in both parents
 		Random myRandom = new Random();
 		
-		//ERROR HERE - for roulette, but not for tournament
+		
 		int cutPoint = myRandom.nextInt(parent1.chromosome.length);
 		
 		//cut both of the parents in chosen random points
@@ -226,6 +221,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 
 			offspring1.chromosome[i] = parent1.chromosome[i];
 			offspring2.chromosome[i] = parent2.chromosome[i];
+			
 			
 			//add genes from the second parent
 			for(i = cutPoint; i<parent2.chromosome.length;i++)
@@ -236,11 +232,30 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			}
 			
 		}
-
+//		System.out.println ("dziecko 1" + offspring1.chromosome );
+//		System.out.println ("dziecko 2" + offspring2.chromosome );
+//		
+//		System.out.println ("parent 1" + parent1.chromosome );
+//		System.out.println ("parent 2" + parent2.chromosome );
+		
+//		if(offspring1.fitness > offspring2.fitness)
+//		{
+//			children.add(offspring2);
+//		}
+//		else
+//		{
+//			children.add(offspring1);
+//		}
+		
 		children.add(offspring1);
 		children.add(offspring2);
 		return children;
 	}
+	
+	
+// UNIFORM SELECTION - CROSSOVER	
+	
+
 	/**
 	 * Crossover / Reproduction
 	 * 
