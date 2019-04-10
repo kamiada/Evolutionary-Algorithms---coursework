@@ -45,11 +45,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 
 			// Select 2 Individuals from the current population. Currently returns random Individual
 			
-//			Individual parent1 = tournament_selection();
-//			Individual parent2 = tournament_selection();
+			Individual parent1 = tournament_selection();
+			Individual parent2 = tournament_selection();
 			
-			Individual parent1 = roulette_selection();
-			Individual parent2 = roulette_selection();
+//			Individual parent1 = roulette_selection();
+//			Individual parent2 = roulette_selection();
 			
 
 			// Generate a child by crossover. Not Implemented			
@@ -143,7 +143,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		
 		
 		//try to get 20% out of population size
-		for(int i=0; i<Parameters.popSize/8;i++)
+		for(int i=0; i<Parameters.popSize/2;i++)
 			
 			//better outcome when 20% is used instead of 50%. Better fitness.
 			
@@ -255,6 +255,17 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	
 // UNIFORM SELECTION - CROSSOVER	
 	
+	
+	private ArrayList<Individual>uniform_reproduce(Individual parent1, Individual parent2)
+	{
+		ArrayList<Individual> children = new ArrayList<>();
+		Individual offspring1 = new Individual();
+		Individual offspring2 = new Individual();
+		return children;
+	}
+	
+	
+	
 
 	/**
 	 * Crossover / Reproduction
@@ -298,6 +309,8 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	{
 		for(Individual individual : individuals)
 		{
+			
+			//modified version of original mutation
 			for(int i=0; i<individual.chromosome.length; i++)
 			{
 				if (Parameters.random.nextBoolean()) 

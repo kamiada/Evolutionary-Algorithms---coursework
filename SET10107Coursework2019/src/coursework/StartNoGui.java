@@ -18,40 +18,44 @@ public class StartNoGui {
 		 * 
 		 */
 
-		/*
-		 * Set the parameters here or directly in the Parameters Class.
-		 * Note you should use a maximum of 20,0000 evaluations for your experiments 
-		 */
-		Parameters.maxEvaluations = 20000; // Used to terminate the EA after this many generations
-		Parameters.popSize = 200; // Population Size
+		int numbofRuns = 10;
+		
+		for(int i = 0; i<numbofRuns; i++)
+		{
+			/*
+			 * Set the parameters here or directly in the Parameters Class.
+			 * Note you should use a maximum of 20,0000 evaluations for your experiments 
+			 */
+			Parameters.maxEvaluations = 20000; // Used to terminate the EA after this many generations
+			//Parameters.popSize = 200; // Population Size
 
-		//number of hidden nodes in the neural network
-		Parameters.setHidden(5);
+			//number of hidden nodes in the neural network
+			Parameters.setHidden(5);
+			
+			//Set the data set for training 
+			Parameters.setDataSet(DataSet.Training);
+			
+			
+			//Create a new Neural Network Trainer Using the above parameters 
+			NeuralNetwork nn = new ExampleEvolutionaryAlgorithm();		
+			
+			//train the neural net (Go and make a coffee) 
+			nn.run();
+			
+			/* Print out the best weights found
+			 * (these will have been saved to disk in the project default directory) 
+			 */
+			System.out.println(nn.best);
+			/**
+			 * We now need to test the trained network on the unseen test Set
+			 */
+			Parameters.setDataSet(DataSet.Test);
+			double fitness = Fitness.evaluate(nn);
+			System.out.println("Fitness on " + Parameters.getDataSet() + " " + fitness);
+			
+			
+		}
 		
-		//Set the data set for training 
-		Parameters.setDataSet(DataSet.Training);
-		
-		
-		//Create a new Neural Network Trainer Using the above parameters 
-		NeuralNetwork nn = new ExampleEvolutionaryAlgorithm();		
-		
-		//train the neural net (Go and make a coffee) 
-		nn.run();
-		
-		/* Print out the best weights found
-		 * (these will have been saved to disk in the project default directory) 
-		 */
-		System.out.println(nn.best);
-		
-		
-		
-		
-		/**
-		 * We now need to test the trained network on the unseen test Set
-		 */
-		Parameters.setDataSet(DataSet.Test);
-		double fitness = Fitness.evaluate(nn);
-		System.out.println("Fitness on " + Parameters.getDataSet() + " " + fitness);
 		
 		
 		/**
