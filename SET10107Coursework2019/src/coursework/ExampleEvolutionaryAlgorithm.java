@@ -45,11 +45,11 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 
 			// Select 2 Individuals from the current population. Currently returns random Individual
 			
-			Individual parent1 = tournament_selection();
-			Individual parent2 = tournament_selection();
+//			Individual parent1 = tournament_selection();
+//			Individual parent2 = tournament_selection();
 			
-//			Individual parent1 = roulette_selection();
-//			Individual parent2 = roulette_selection();
+			Individual parent1 = roulette_selection();
+			Individual parent2 = roulette_selection();
 			
 
 			// Generate a child by crossover. Not Implemented			
@@ -143,7 +143,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		
 		
 		//try to get 20% out of population size
-		for(int i=0; i<Parameters.popSize/2;i++)
+		for(int i=0; i<Parameters.popSize/8;i++)
 			
 			//better outcome when 20% is used instead of 50%. Better fitness.
 			
@@ -186,7 +186,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		//starting from the top of the population, keep adding the finesses to the partial sum P, till P<S.
 		for(Individual individual : population)
 		{
-			comparisonPoint += individual.fitness - 1;
+			comparisonPoint += individual.fitness;
 			
 			if(comparisonPoint < S) 
 			{
@@ -232,20 +232,6 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 			}
 			
 		}
-//		System.out.println ("dziecko 1" + offspring1.chromosome );
-//		System.out.println ("dziecko 2" + offspring2.chromosome );
-//		
-//		System.out.println ("parent 1" + parent1.chromosome );
-//		System.out.println ("parent 2" + parent2.chromosome );
-		
-//		if(offspring1.fitness > offspring2.fitness)
-//		{
-//			children.add(offspring2);
-//		}
-//		else
-//		{
-//			children.add(offspring1);
-//		}
 		
 		children.add(offspring1);
 		children.add(offspring2);
@@ -261,6 +247,18 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		ArrayList<Individual> children = new ArrayList<>();
 		Individual offspring1 = new Individual();
 		Individual offspring2 = new Individual();
+		
+		Random myRandom = new Random();
+		int flipPoint =  myRandom.nextInt();
+		
+		for(int i=0; i<parent1.chromosome.length; i++)
+		{
+			
+		}
+		
+		
+		children.add(offspring1);
+		children.add(offspring2);
 		return children;
 	}
 	

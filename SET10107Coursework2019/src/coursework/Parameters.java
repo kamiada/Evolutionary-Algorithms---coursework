@@ -19,18 +19,17 @@ public class Parameters {
 	public static double minGene = -3; // specifies minimum and maximum weight values 
 	public static double maxGene = +3;
 		
-	public static int popSize = 40;
+	public static int popSize = 200;
 	public static int maxEvaluations = 20000;
 	
 	// Parameters for mutation 
 	// Rate = probability of changing a gene
 	// Change = the maximum +/- adjustment to the gene value
-	public static double mutateRate = 0.01; // mutation rate for mutation operator
-	public static double mutateChange = 0.05; // delta change for mutation operator
+	//public static double mutateRate = 0.01; // mutation rate for mutation operator
 	
-	//FOR TESTING:
-//	public static double mutateRate = 2.05; 
-//	public static double mutateChange = 2.05;
+	//tuned
+	public static double mutateRate = 0.05;
+	public static double mutateChange = 0.05; // delta change for mutation operator
 	
 	
 	

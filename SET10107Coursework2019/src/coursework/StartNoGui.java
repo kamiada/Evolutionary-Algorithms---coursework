@@ -26,7 +26,7 @@ public class StartNoGui {
 		NeuralNetwork nn = new ExampleEvolutionaryAlgorithm();		
 		for(int i = 0; i<numbofRuns; i++)
 		{
-			Parameters.maxEvaluations = 20000; // Used to terminate the EA after this many generations
+			//Parameters.maxEvaluations = 20000; // Used to terminate the EA after this many generations
 			//Parameters.popSize = 200; // Population Size
 			
 			//training
@@ -51,8 +51,8 @@ public class StartNoGui {
 		//print function
 		for(int i = 0; i<numbofRuns; i++)
 		{
-			System.out.println("Best scores from training " + " no. " + i + " " + trainingScores[i]);
-			System.out.println("Scores from test "+ " no. " + i + " " + testScores[i]);
+			System.out.println("Best scores from training " + " no. " + i + " : " + trainingScores[i]);
+			System.out.println("Scores from test "+ " no. " + i + " : " + testScores[i]);
 		}
 		
 		/**
