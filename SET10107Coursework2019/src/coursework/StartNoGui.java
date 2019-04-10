@@ -1,6 +1,7 @@
 package coursework;
 
 import model.Fitness;
+import model.Individual;
 import model.LunarParameters.DataSet;
 import model.NeuralNetwork;
 
@@ -20,9 +21,9 @@ public class StartNoGui {
 
 		int numbofRuns = 10;
 		
-		double[] trainingScores;
-		double[] testScores;
-		
+		double[] trainingScores = new double[10];
+		double[] testScores = new double[10];
+		NeuralNetwork nn = new ExampleEvolutionaryAlgorithm();		
 		for(int i = 0; i<numbofRuns; i++)
 		{
 			Parameters.maxEvaluations = 20000; // Used to terminate the EA after this many generations
@@ -31,20 +32,27 @@ public class StartNoGui {
 			//training
 			Parameters.setHidden(5);
 			Parameters.setDataSet(DataSet.Training);
-			NeuralNetwork nn = new ExampleEvolutionaryAlgorithm();		
+
 			nn.run();
-			System.out.println(nn.best);
+			//System.out.println(nn.best);
+			double fitnessTraining = Fitness.evaluate(nn);
+			trainingScores[i] = fitnessTraining;
+		
 			
 			//test
 			Parameters.setDataSet(DataSet.Test);
-			double fitness = Fitness.evaluate(nn);
-			System.out.println("Fitness on " + Parameters.getDataSet() + " " + fitness);
+			double fitnessTest = Fitness.evaluate(nn);
+			//System.out.println("Fitness on " + Parameters.getDataSet() + " " + fitnessTest);
+			testScores[i] = fitnessTest;
 
 		}
 		
+		
+		//print function
 		for(int i = 0; i<numbofRuns; i++)
 		{
-			
+			System.out.println("Best scores from training " + " no. " + i + " " + trainingScores[i]);
+			System.out.println("Scores from test "+ " no. " + i + " " + testScores[i]);
 		}
 		
 		/**
