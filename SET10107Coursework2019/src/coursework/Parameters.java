@@ -19,7 +19,9 @@ public class Parameters {
 	public static double minGene = -3; // specifies minimum and maximum weight values 
 	public static double maxGene = +3;
 		
-	public static int popSize = 200;
+	
+	///to original size of population is 40 
+	public static int popSize = 40;
 	public static int maxEvaluations = 20000;
 	
 	// Parameters for mutation 
@@ -28,7 +30,7 @@ public class Parameters {
 	//public static double mutateRate = 0.01; // mutation rate for mutation operator
 	
 	//tuned
-	public static double mutateRate = 0.1;
+	public static double mutateRate = 0.01;
 	public static double mutateChange = 0.05; // delta change for mutation operator
 	
 	

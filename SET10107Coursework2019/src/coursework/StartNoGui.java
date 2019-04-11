@@ -19,10 +19,10 @@ public class StartNoGui {
 		 * 
 		 */
 
-		int numbofRuns = 10;
+		int numbofRuns = 20;
 		
-		double[] trainingScores = new double[10];
-		double[] testScores = new double[10];
+		double[] trainingScores = new double[20];
+		double[] testScores = new double[20];
 		NeuralNetwork nn = new ExampleEvolutionaryAlgorithm();		
 		for(int i = 0; i<numbofRuns; i++)
 		{
