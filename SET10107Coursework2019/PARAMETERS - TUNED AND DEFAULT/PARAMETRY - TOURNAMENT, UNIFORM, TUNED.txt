@@ -1,0 +1,9 @@
+numHidden 	5
+numGenes 	48
+minGene 	-3.0
+maxGene 	3.0
+popSize 	200
+maxEvaluations 	20000
+mutateRate 	0.1
+mutateChange 	0.05
+seed 	1554947394270

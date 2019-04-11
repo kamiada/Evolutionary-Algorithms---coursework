@@ -45,19 +45,23 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 
 			// Select 2 Individuals from the current population. Currently returns random Individual
 			
-//			Individual parent1 = tournament_selection();
-//			Individual parent2 = tournament_selection();
+			Individual parent1 = tournament_selection();
+			Individual parent2 = tournament_selection();
 			
-			Individual parent1 = roulette_selection();
-			Individual parent2 = roulette_selection();
+//			Individual parent1 = roulette_selection();
+//			Individual parent2 = roulette_selection();
 			
 
 			// Generate a child by crossover. Not Implemented			
-			//ArrayList<Individual> children = reproduce(parent1, parent2);			
+			//ArrayList<Individual> children = reproduce(parent1, parent2);		
+			
+			
 			ArrayList<Individual>children = singleP_reproduce(parent1,parent2);
+			
+			//ArrayList<Individual>children = uniform_reproduce(parent1,parent2);
 			//mutate the offspring
-			//mutate(children);
-			mutate_test(children);
+			mutate(children);
+			//mutate_test(children);
 			// Evaluate the children
 			evaluateIndividuals(children);			
 
@@ -241,7 +245,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 	
 // UNIFORM SELECTION - CROSSOVER	
 	
-	
+
 	private ArrayList<Individual>uniform_reproduce(Individual parent1, Individual parent2)
 	{
 		ArrayList<Individual> children = new ArrayList<>();
@@ -249,10 +253,29 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		Individual offspring2 = new Individual();
 		
 		Random myRandom = new Random();
-		int flipPoint =  myRandom.nextInt();
 		
 		for(int i=0; i<parent1.chromosome.length; i++)
 		{
+			if(myRandom.nextBoolean() )
+			{
+				offspring1.chromosome[i] = parent1.chromosome[i];
+				
+			}
+			else
+			{
+				offspring1.chromosome[i] = parent2.chromosome[i];
+				
+			}
+			
+			if(Parameters.random.nextDouble() < 0.5) 
+			{
+				offspring2.chromosome[i] = parent2.chromosome[i];
+			}
+			
+			else
+			{
+				offspring2.chromosome[i] = parent1.chromosome[i];
+			}
 			
 		}
 		
@@ -261,79 +284,60 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork {
 		children.add(offspring2);
 		return children;
 	}
-	
-	
-	
 
-	/**
-	 * Crossover / Reproduction
-	 * 
-	 * NEEDS REPLACED with proper method this code just returns exact copies of the
-	 * parents. 
-	 */
-//	private ArrayList<Individual> reproduce(Individual parent1, Individual parent2) {
-//		ArrayList<Individual> children = new ArrayList<>();
-//		children.add(parent1.copy());
-//		children.add(parent2.copy());		
-//		return children;
-//	} 
-
-	
-	/**
-	 * Mutation
-	 * 
-	 * 
-	 */
-	
-	
-	
-//	private void mutate(ArrayList<Individual> individuals) 
-//	{		
-//		for(Individual individual : individuals) {
-//			for (int i = 0; i < individual.chromosome.length; i++) {
-//				if (Parameters.random.nextDouble() < Parameters.mutateRate) {
-//					if (Parameters.random.nextBoolean()) {
-//						individual.chromosome[i] += (Parameters.mutateChange);
-//					} else {
-//						individual.chromosome[i] -= (Parameters.mutateChange);
-//					}
-//				}
-//			}
-//		}		
-//	}
-
-	//bit
-	private void mutate_test(ArrayList<Individual> individuals)
-	{
+	private void mutate(ArrayList<Individual> individuals) 
+	{		
 		for(Individual individual : individuals)
 		{
-			
-			//modified version of original mutation
-			for(int i=0; i<individual.chromosome.length; i++)
+			for (int i = 0; i < individual.chromosome.length; i++)
 			{
-				if (Parameters.random.nextBoolean()) 
+				//if (Parameters.random.nextDouble() < Parameters.mutateRate) 
 				{
-					individual.chromosome[i] += (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
+					if (Parameters.random.nextBoolean()) 
+					{
+						individual.chromosome[i] += (Parameters.mutateChange);
+					} 
+					else 
+					{
+						individual.chromosome[i] -= (Parameters.mutateChange);
+					}
 				}
-				else 
-				{
-					individual.chromosome[i] -= (0.1 + (Parameters.random.nextDouble() * Parameters.mutateChange));
-				}
-				
-
-				if(individual.chromosome[i] > Parameters.maxGene)
-				{
-					individual.chromosome[i] = Parameters.maxGene;
-				}
-				else if (individual.chromosome[i] < Parameters.minGene)
-				{
-					individual.chromosome[i] = Parameters.minGene;
-				}
-					
 			}
-		}
+		}		
 	}
-	
+
+	//bit
+//	private void mutate_test(ArrayList<Individual> individuals)
+//	{
+//		for(Individual child : individuals)
+//		{
+//			
+//			//modified version of original mutation
+//			for(int i=0; i<child.chromosome.length; i++)
+//			{
+//				if (Parameters.random.nextBoolean()) 
+//				{
+//					child.chromosome[i] += (Parameters.random.nextDouble() * Parameters.mutateChange);
+//				}
+//				else 
+//				{
+//					child.chromosome[i] -= (Parameters.random.nextDouble() * Parameters.mutateChange);
+//				}
+//				
+//
+//				if(child.chromosome[i] > Parameters.maxGene)
+//				{
+//					child.chromosome[i] = Parameters.maxGene;
+//				}
+//				else if (child.chromosome[i] < Parameters.minGene)
+//				{
+//					child.chromosome[i] = Parameters.minGene;
+//				}
+//					
+//			}
+//		}
+//	}
+//	
 	
 	
 	/**

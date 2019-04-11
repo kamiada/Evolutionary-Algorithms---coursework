@@ -28,7 +28,7 @@ public class Parameters {
 	//public static double mutateRate = 0.01; // mutation rate for mutation operator
 	
 	//tuned
-	public static double mutateRate = 0.05;
+	public static double mutateRate = 0.1;
 	public static double mutateChange = 0.05; // delta change for mutation operator
 	
 	
